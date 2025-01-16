@@ -20,6 +20,8 @@
             </tr>
         <?php endforeach; ?>
     </table>
+    <a href="index.php?controller=Evaluation&action=create">アンケートを記入する</a>
+
     <a href="index.php?controller=User&action=logout" style="color: red;">ログアウト</a>
 
 </body>

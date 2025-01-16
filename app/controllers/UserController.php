@@ -17,10 +17,6 @@ class UserController {
                 require 'app/views/users/login.php';
             }
             
-            var_dump($password, $user['password_hash'], password_verify($password, $user['password_hash']));
-exit;
-
-            
             
         } else {
             require 'app/views/users/login.php';

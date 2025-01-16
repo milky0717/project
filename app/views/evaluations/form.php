@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>評価作成</title>
-</head>
-<body>
-    <h1>新しい評価</h1>
-    <form action="index.php?controller=Evaluation&action=create" method="POST">
-        <label for="target_user">評価対象者:</label>
-        <select id="target_user" name="target_user">
-            <?php foreach ($users as $user): ?>
-                <option value="<?= htmlspecialchars($user['id']) ?>"><?= htmlspecialchars($user['username']) ?></option>
-            <?php endforeach; ?>
-        </select>
-        <label for="score">スコア:</label>
-        <input type="number" id="score" name="score" min="1" max="5" required>
-        <label for="comments">コメント:</label>
-        <textarea id="comments" name="comments"></textarea>
-        <button type="submit">送信</button>
-    </form>
-</body>
-</html>
+<h2>アンケートを記入</h2>
+
+<form action="index.php?controller=Evaluation&action=submit" method="post">
+    <label for="target_user_id">評価対象者:</label>
+    <select name="target_user_id" id="target_user_id" required>
+        <option value="">--選択してください--</option>
+        <?php foreach ($users as $user): ?>
+            <option value="<?= htmlspecialchars($user['id']) ?>">
+                <?= htmlspecialchars($user['username']) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+    <br><br>
+
+    <label for="score">評価スコア (1〜10):</label>
+    <input type="number" name="score" id="score" min="1" max="10" required>
+    <br><br>
+
+    <label for="comments">コメント:</label>
+    <textarea name="comments" id="comments" rows="4" cols="50" required></textarea>
+    <br><br>
+
+    <button type="submit">送信</button>
+</form>
